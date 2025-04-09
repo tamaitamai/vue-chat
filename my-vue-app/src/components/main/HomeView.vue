@@ -1,3 +1,3 @@
 <template>
-    <div>ここがホーム画面</div>
+    <div>ここがホーム</div>
 </template>

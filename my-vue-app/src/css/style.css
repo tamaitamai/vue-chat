@@ -1,9 +1,36 @@
-.router-link{
-    font-size: 20px;
-    text-decoration: none;
-    color: black;
+.btn{
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: white;
 }
 
-.router-link:hover{
-    color: blue;
+.select-on{
+    background-color: #2f3644;
+    color: white;
+    opacity: 1;
+}
+
+.left-main{
+    width: 300px;
+    border-right: 1px #d9cece solid;
+}
+
+.select-title{
+    background-color: #edeff5;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    border-bottom: 1px #d9cece solid;
+}
+
+.bottom-border{
+    border-bottom: 1px #d9cece solid;
+}
+
+.input1{
+    background-color: #edeff5;
+    border-radius: 5px;
+    height: 30px;
 }

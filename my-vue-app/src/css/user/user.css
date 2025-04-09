@@ -1,0 +1,25 @@
+.user-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-direction: column;
+    border: 1px black solid;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.user-title{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.user-parts{
+    margin: 10px 0px;
+}

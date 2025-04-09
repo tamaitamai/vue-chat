@@ -1,7 +1,10 @@
 <template>
     <div id="app">
-        <TopHeader></TopHeader>
-        <RouterView></RouterView>
+        <main v-show="$route.meta.showHeader">
+            <TopHeader></TopHeader>
+            <RouterView></RouterView>
+        </main>
+        <RouterView v-show="!$route.meta.showHeader"></RouterView>
     </div>
 </template>
 
@@ -17,4 +20,15 @@ export default {
 </script>
 
 <style>
+html, body, #app{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+main{
+    display: flex;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
 </style>
