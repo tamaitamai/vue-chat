@@ -9,8 +9,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig {
 
-    @Value("${spring.web.cors.allowed-origins}")
-    private String allowedOrigins;
+//    @Value("${spring.web.cors.allowed-origins}")
+//    private String allowedOrigins;
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
@@ -18,9 +18,9 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        // .allowedOrigins("http://localhost:8081")
-                        // .allowedOrigins("https://vue-project-vw4z.onrender.com")]
-                        .allowedOrigins(allowedOrigins)
+                         .allowedOrigins("http://localhost:8081")
+//                         .allowedOrigins("https://vue-project-vw4z.onrender.com")]
+//                        .allowedOrigins(allowedOrigins)
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
