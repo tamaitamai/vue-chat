@@ -23,5 +23,4 @@ function userLogin(){
     router.push({path: '/member'})
 }
 </script>
-<style src="../../css/user/user.css"></style>
-<style src="../../css/style.css"></style>
+<style src="../../css/user/user.css" scoped></style>

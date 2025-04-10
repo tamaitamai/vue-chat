@@ -13,5 +13,10 @@ module.exports = {
     },
     rules: {
     },
+    globals: {
+      defineEmits: 'readonly',
+      defineProps: 'readonly',
+      defineExpose: 'readonly',
+    },
   };
   

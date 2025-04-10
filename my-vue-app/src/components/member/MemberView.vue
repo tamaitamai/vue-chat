@@ -26,5 +26,4 @@ function clickGroup(){
     groupFlg.value = true;
 }
 </script>
-<style src="../../css/style.css"></style>
-<style src="../../css/member/member.css"></style>
+<style src="../../css/member/member.css" scoped></style>

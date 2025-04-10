@@ -32,3 +32,4 @@ main{
     overflow: hidden;
 }
 </style>
+<style src="./css/style.css"></style>

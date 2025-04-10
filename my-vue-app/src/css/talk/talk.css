@@ -13,18 +13,8 @@
     display: flex;
 }
 
-.talk-image{
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-}
-
 .talk-message{
     margin-left: 10px;
-}
-
-.talk-name{
-
 }
 
 .talk-time{
