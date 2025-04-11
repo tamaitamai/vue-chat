@@ -108,3 +108,8 @@
 .margin-right10{
     margin-right: 10px;
 }
+
+/* エラー表示 */
+.error{
+    color: red;
+}

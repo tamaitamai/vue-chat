@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,7 @@ public class UserController {
 	private UserService userService;
 	
 	@PostMapping("/login")
-	public User login(@RequestBody User user) {
+	public User login(@RequestBody @Validated User user) {
 		System.out.println("login");
 		System.out.println(user);
 		if(userService.login(user.getMail(), user.getPassword()) == null) {
@@ -26,7 +27,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/insert")
-	public void insert(@RequestBody User user) {
+	public void insert(@RequestBody @Validated User user) {
 		System.out.println("insert");
 		System.out.println(user);
 		userService.insert(user);

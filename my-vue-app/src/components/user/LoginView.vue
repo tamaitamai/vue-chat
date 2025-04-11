@@ -2,19 +2,16 @@
     <div class="user-main">
         <div class="user-box">
             <div class="user-title">ログイン</div>
-            <div class="user-parts">
-                <label for="mail">メール：</label>
-                <input type="text" id="mail" name="mail" v-model="mail">
-            </div>
-            <div class="user-parts">
-                <label for="password">パスワード：</label>
-                <input type="password" id="password" name="password" v-model="password">
-            </div>
+            <input type="text" id="mail" name="mail" v-model="mail" placeholder="メール">
+            <div class="error">{{ errorMap['mail'] }}</div>
+            <input type="password" id="password" name="password" v-model="password" placeholder="パスワード">
+            <div class="error">{{ errorMap['password'] }}</div>
             <button class="btn" @click="userLogin()">ログイン</button>
         </div>
     </div>
 </template>
 <script setup>
+import { eroorView } from '@/utils';
 import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -22,6 +19,10 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 const mail = ref('')
 const password = ref('')
+const errorMap = ref({
+    'mail': '',
+    'password': '',
+})
 
 function userLogin(){
     axios.post('/user/login',
@@ -38,9 +39,8 @@ function userLogin(){
             router.push({path: '/member'})
         }
     })
-    .catch(() => {
-        alert('ログインができませんでした')
-        console.log('ログインができませんでした')
+    .catch(error => {
+        eroorView(error, errorMap.value)
     })
     
 }

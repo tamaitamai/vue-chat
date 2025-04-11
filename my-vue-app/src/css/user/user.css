@@ -5,6 +5,7 @@
 }
 
 .user-box{
+    width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +21,9 @@
     margin-bottom: 30px;
 }
 
-.user-parts{
-    margin: 10px 0px;
+input{
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-bottom: 20px;
 }
