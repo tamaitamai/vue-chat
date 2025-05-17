@@ -2,12 +2,13 @@
     <div class="user-main">
         <div class="user-box">
             <div class="user-title">ログイン</div>
-            <input type="text" id="mail" name="mail" v-model="mail" placeholder="メール">
             <div class="error">{{ errorMap['mail'] }}</div>
-            <input type="password" id="password" name="password" v-model="password" placeholder="パスワード">
+            <input type="text" id="mail" name="mail" v-model="mail" placeholder="メール">
             <div class="error">{{ errorMap['password'] }}</div>
+            <input type="password" id="password" name="password" v-model="password" placeholder="パスワード">
             <button class="btn" @click="userLogin()">ログイン</button>
         </div>
+        <RouterLink to="/insert" class="move-url">新規登録画面へ</RouterLink>
     </div>
 </template>
 <script setup>

@@ -20,6 +20,8 @@ public class UserRepository {
 		user.setId(rs.getInt("id"));
 		user.setMail(rs.getString("mail"));
 		user.setPassword(rs.getString("password"));
+		user.setLastName(rs.getString("last_name"));
+		user.setFirstName(rs.getString("first_name"));
 		return user;
 	};
 	
@@ -28,7 +30,7 @@ public class UserRepository {
 	 * @param user
 	 */
 	public void insert(User user) {
-		String sql = "INSERT INTO vc_users(mail, password)VALUES(:mail, :password);";
+		String sql = "INSERT INTO vc_users(mail, last_name, first_name, password)VALUES(:mail, :lastName, :firstName, :password);";
 		SqlParameterSource params = new BeanPropertySqlParameterSource(user);
 		template.update(sql, params);
 	}
