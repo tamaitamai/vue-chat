@@ -30,4 +30,12 @@ public class UserService {
 	public User login(String mail, String password) {
 		return userRepository.login(mail, password);
 	}
+	
+	/**
+	 * ユーザー情報の更新
+	 * @param user
+	 */
+	public void update(User user) {
+		userRepository.update(user);
+	}
 }

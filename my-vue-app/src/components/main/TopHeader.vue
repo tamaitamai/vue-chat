@@ -1,6 +1,5 @@
 <template>
     <div class="header-container">
-        
         <div class="menu">
             <div class="top-title">VueChat</div>
             <RouterLink to="/" :class="['router-link', selectMap['home'] ? 'select-on': true]" 
@@ -15,13 +14,23 @@
             @click="selectLink('share')">共有</RouterLink>
         </div>
         <div class="operate">
-            <div>ユーザー名</div>
-            <div>設定</div>
+            <div v-if="isShow">ユーザー名</div>
+            <div v-else>
+                <div>{{ user.lastName + user.firstName }}</div>
+                <div @click="settingFlg = !settingFlg">設定</div>
+                <SettingView v-if="settingFlg" @open-user-edit="openUserEdit()"></SettingView>
+            </div>
         </div>
     </div>
+    <EditUser v-if="userEditFlg" @close-user-edit="closeUserEdit()"></EditUser>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { useStore } from 'vuex';
+import SettingView from './SettingView.vue';
+import EditUser from '../user/EditUser.vue';
+
+const store = useStore();
 
 const selectMap = ref({
     'home': false,
@@ -31,8 +40,12 @@ const selectMap = ref({
     'talk': false,
     'share': false,
 })
+const user = computed(() => store.getters.getUserData);
+const isShow = computed(() => user.value === null);
+const settingFlg = ref(false);
+const userEditFlg = ref(false);
 
-function selectLink(select){
+function selectLink(select) {
     for(const key in selectMap.value){
         if(key==select){
             selectMap.value[key] = true;
@@ -43,6 +56,13 @@ function selectLink(select){
     }
 }
 
+function openUserEdit() {
+    userEditFlg.value = true;
+}
+
+function closeUserEdit() {
+    userEditFlg.value = false;
+}
+
 </script>
 <style src="../../css/main/top.css" scoped></style>
-<style src="../../css/style.css" scoped></style>

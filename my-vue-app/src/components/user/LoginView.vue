@@ -16,8 +16,11 @@ import { eroorView } from '@/utils';
 import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 const router = useRouter()
+const store = useStore();
+
 const mail = ref('')
 const password = ref('')
 const errorMap = ref({
@@ -37,6 +40,7 @@ function userLogin(){
             console.log('ユーザーデータを取得できませんでした')
         }
         else{
+            store.dispatch('updateUserData', response.data)
             router.push({path: '/member'})
         }
     })

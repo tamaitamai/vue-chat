@@ -51,4 +51,14 @@ public class UserRepository {
 			return null;
 		}
 	}
+	
+	/**
+	 * ユーザー情報の更新
+	 * @param user
+	 */
+	public void update(User user) {
+		String sql = "UPDATE vc_users SET mail=:mail, last_name=:lastName, first_name=:firstName WHERE id=:id;";
+		SqlParameterSource params = new BeanPropertySqlParameterSource(user);
+		template.update(sql, params);
+	}
 }

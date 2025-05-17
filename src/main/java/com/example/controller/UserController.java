@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.User;
+import com.example.form.EditUserForm;
 import com.example.form.LoginForm;
 import com.example.form.UserInsertForm;
 import com.example.service.UserService;
@@ -43,5 +44,15 @@ public class UserController {
 		User user = new User();
 		BeanUtils.copyProperties(userInsertForm, user);
 		userService.insert(user);
+	}
+	
+	@PostMapping("/edit")
+	public User editUser(@RequestBody @Validated EditUserForm editUserForm) {
+		System.out.println(editUserForm);
+		User user = new User();
+		BeanUtils.copyProperties(editUserForm, user);
+		System.out.println(user);
+		userService.update(user);
+		return user;
 	}
 }
