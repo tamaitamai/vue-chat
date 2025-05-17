@@ -1,0 +1,16 @@
+package com.example.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
+	Integer id;
+	String mail;
+	String password;
+	String lastName;
+	String firstName;
+}

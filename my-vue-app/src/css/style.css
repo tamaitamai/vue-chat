@@ -108,3 +108,14 @@
 .margin-right10{
     margin-right: 10px;
 }
+
+/* エラー表示 */
+.error{
+    color: red;
+}
+
+/* 画面遷移URL */
+.move-url{
+    margin-top: 20px;
+    font-size: 20px;
+}
